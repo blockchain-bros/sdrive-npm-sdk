@@ -6,7 +6,7 @@ const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
 sdrive.network="ipfs";
 
 const filename = "data.json";
-const filedata = { data: "Hello world" };
+const filedata = { data: "Hello world from SDrive" };
 
 const jsonString = JSON.stringify(filedata); // Convert JSON object to a string
 const buffer = Buffer.from(jsonString); // Convert string to a Buffer
