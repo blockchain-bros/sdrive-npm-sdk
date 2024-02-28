@@ -8,7 +8,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "mocha test",
-    "fmt": "prettier --write src/ test/ *.json",
+    "fmt": "prettier --write src/ test/ examples/ *.json",
     "build:esnext": "tsc -p tsconfig.esnext.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build": "npm run build:esnext && npm run build:cjs",

@@ -1,4 +1,4 @@
-import {SDrive} from "../dist/esnext/index.js";
+import { SDrive } from "../dist/esnext/index.js";
 import assert from "assert";
 import dotenv from "dotenv";
 dotenv.config();
