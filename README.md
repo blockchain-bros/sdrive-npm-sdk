@@ -17,18 +17,18 @@
 
 ### if using modules
 ```
-import SDrive from "sdrive";
+import {SDrive} from "sdrive";
 ```
 
 ### if using CommonJS
 substitute the import command below with this require 
 ```
-const SDrive = require("sdrive/dist/cjs/index.cjs").default;
+const SDrive = require("sdrive");
 ```
 
 ### UPLOAD
 ```
-import SDrive from "sdrive";
+import {SDrive} from "sdrive";
 import fs from "fs/promises";
 const sdrive = new SDrive("your_sdrive_apikey_here");
 
@@ -45,7 +45,7 @@ await sdrive.upload(buffer, "hello.png")
 
 ### LIST OBJECTS
 ```
-import SDrive from "sdrive";
+import {SDrive} from "sdrive";
 const sdrive = new SDrive("your_sdrive_apikey_here");
 
 await sdrive.listObjects()
