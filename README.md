@@ -15,6 +15,8 @@
 
 `npm i sdrive`
 
+
+### UPLOAD
 ```
 import * as Sdrive from "sdrive";
 const sdrive = new SDrive("your_sdrive_apikey_here");
@@ -23,7 +25,7 @@ const filePath = './hello.png';
 const buffer = await fs.readFile(filePath);
 await sdrive.uploadFile(buffer, "hello.png")
 
-sdrive.uploadFile(buffer, filename)
+await sdrive.uploadFile(buffer, filename)
   .then(response => {
     console.log("Upload successful:", response);
   })
@@ -32,10 +34,21 @@ sdrive.uploadFile(buffer, filename)
   });
 ```
 
+### LIST OBJECTS
+```
+import * as Sdrive from "sdrive";
+const sdrive = new SDrive("your_sdrive_apikey_here");
+
+await sdrive.listObjects()
+  .then(response => {
+    console.log(response);
+  })
+```
+
 ### Getting an API key
 
 - Go to `https://sdrive.app/`
-- Log in or tegister an account 
+- Log in or register an account 
 - Go to `https://sdrive.app/api` and create an API key
 
 ### API Documentation

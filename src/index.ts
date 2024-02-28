@@ -20,19 +20,13 @@ export default class SDrive {
   }
 
   async listObjects(): Promise<String[]> {
-    let formData = new FormData();
-    formData.append("apikey", this.apikey);
-
     try {
       const response: AxiosResponse = await axios.post(
-        `${this.base_url}/listObjects`,
-        formData,
-        {
-          headers: formData.getHeaders(),
-        }
+        `${this.base_url}/list-objects`,
+        { apikey: this.apikey },
       );
       return response.data;
-     } catch (error: any) {
+    } catch (error: any) {
       // Explicitly state that error can be of any type
       if ((error as AxiosError).response) {
         // Type-check error before accessing properties
@@ -45,7 +39,7 @@ export default class SDrive {
       } else {
         throw error;
       }
-    }  
+    }
   }
 
   async upload(buffer: Buffer, filename: string): Promise<any> {
@@ -64,7 +58,7 @@ export default class SDrive {
         formData,
         {
           headers: formData.getHeaders(),
-        }
+        },
       );
       return response.data;
     } catch (error: any) {
