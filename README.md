@@ -37,7 +37,7 @@ sdrive.network = desired_network // optional
 
 Where `desired_network` is either "arweave", "shdwdrive" or "ipfs"
 
-### UPLOAD
+### UPLOAD using buffers
 ```
 import {SDrive} from "sdrive";
 import fs from "fs/promises";
@@ -53,6 +53,23 @@ await sdrive.upload(buffer, "hello.png")
     console.error("Upload failed:", error);
   });
 ```
+
+### UPLOAD using filestream
+```
+import {SDrive} from "sdrive";
+import fs from "fs/promises";
+const sdrive = new SDrive("your_sdrive_apikey_here");
+
+const filePath = './hello.png';
+await sdrive.upload(filePath, "hello.png")
+  .then(response => {
+    console.log("Upload successful:", response);
+  })
+  .catch(error => {
+    console.error("Upload failed:", error);
+  });
+```
+
 
 ### LIST OBJECTS
 ```

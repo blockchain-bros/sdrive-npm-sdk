@@ -5,12 +5,13 @@ dotenv.config();
 
 (async () => {
   const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
+  const filePath = "./hello.png";
   await sdrive
-    .listObjects()
+    .upload(filePath, "hello.png")
     .then((response) => {
-      console.log(response);
+      console.log("Upload successful:", response);
     })
     .catch((error) => {
-      console.error("List failed:", error);
+      console.error("Upload failed:", error);
     });
 })();

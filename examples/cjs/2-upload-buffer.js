@@ -1,4 +1,4 @@
-const { SDrive } = require("sdrive");
+const { SDrive } = require("../../dist/cjs/index.cjs");
 const fs = require("fs/promises");
 const dotenv = require("dotenv");
 dotenv.config();
