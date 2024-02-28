@@ -7,7 +7,8 @@
   "scripts": {
     "pretest": "npx tsc",
     "test": "mocha test",
-    "fmt": "prettier --write src/ test/"
+    "build": "npx tsc",
+    "fmt": "prettier --write src/ test/ *.json"
   },
   "keywords": [],
   "author": "",

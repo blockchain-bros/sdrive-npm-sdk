@@ -5,7 +5,7 @@ import path from "path";
 import process from "process";
 import fs from "fs";
 
-export default class SDrive {
+class SDrive {
   apikey: string;
   base_url: string;
 
@@ -77,4 +77,4 @@ export default class SDrive {
     }
   }
 }
-//module.exports = SDrive;
+export default SDrive;
