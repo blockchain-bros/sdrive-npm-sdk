@@ -16,15 +16,16 @@ export class SDrive {
   constructor(
     apikey: string,
     network: "arweave" | "shdwdrive" | "ipfs" = "arweave",
-    generatePreview: boolean = false,
     page = 1,
     limit = 10,
+    generatePreview: boolean = false,
   ) {
     this.apikey = apikey;
     this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
     this.page = page;
     this.limit = limit;
+    this.generatePreview = generatePreview;
 
     if (!this.apikey) {
       console.log("Please add your credentials");
@@ -80,7 +81,7 @@ export class SDrive {
     }
     formData.append("apikey", this.apikey);
     formData.append("network", this.network);
-    formData.append("generatePreview", this.generatePreview);
+    formData.append("generatePreview", this.generatePreview.toString());
 
     try {
       const response: AxiosResponse = await axios.post(
