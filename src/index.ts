@@ -3,14 +3,13 @@ import FormData from "form-data";
 import mime from "mime";
 import path from "path";
 import process from "process";
-import fs from "fs";
 
 export class SDrive {
   apikey: string;
   base_url: string;
-  network: "arweave"|"shdwdrive"
+  network: "arweave" | "shdwdrive";
 
-  constructor(apikey: string, network:"arweave"|"shdwdrive" = "arweave") {
+  constructor(apikey: string, network: "arweave" | "shdwdrive" = "arweave") {
     this.apikey = apikey;
     this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
@@ -26,6 +25,11 @@ export class SDrive {
       const response: AxiosResponse = await axios.post(
         `${this.base_url}/list-objects`,
         { apikey: this.apikey },
+        {
+          headers: {
+            Authorization: `Bearer ${this.apikey}`,
+          },
+        },
       );
       return response.data;
     } catch (error: any) {
