@@ -3,6 +3,7 @@ import fs from "fs/promises";
 import "dotenv/config";
 
 const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
+sdrive.network="ipfs";
 
 const filename = "data.json";
 const filedata = { data: "Hello world" };
