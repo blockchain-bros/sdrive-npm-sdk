@@ -2,7 +2,7 @@
   "name": "sdrive",
   "version": "1.0.0",
   "description": "SDrive is a decentralized storage provider that lets you upload your content on uncensorable networks",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

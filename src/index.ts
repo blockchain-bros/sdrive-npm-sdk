@@ -3,6 +3,7 @@ import FormData from 'form-data';
 import mime from 'mime';
 import path from 'path';
 import process from 'process';
+import fs from "fs";
 
 class SDrive {
   apikey: string;
@@ -18,11 +19,16 @@ class SDrive {
     }
   }
 
-  async uploadFile(fileStream: any, filename: string): Promise<any> {
+  async getBuffer(filePath: string): Promise<Buffer> {
+    const buffer = await fs.promises.readFile(filePath);
+    return buffer;
+  }
+
+  async uploadFile(buffer: any, filename: string): Promise<any> {
     let formData = new FormData();
     let mimetype = mime.getType(path.extname(filename)) || undefined;  // Use undefined if null
 
-    formData.append("fileupload", fileStream, {
+    formData.append("fileupload", buffer, {
       filename: filename,
       contentType: mimetype,
     });
@@ -48,3 +54,4 @@ class SDrive {
   }
 }
 
+export default SDrive;
