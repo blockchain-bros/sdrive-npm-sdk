@@ -4,7 +4,6 @@
 
 <img src="https://static.sdrive.app/images/sdrive-logo-transparent.png" width="150" alt="SDrive Logo">
 
-
 #### SDrive gives you access to large decentralized storage networks without compromising user experience or privacy. You can select from various storage providers such as ARWeave, Storj, and Shadow Drive, and pay for the services as you use them. There are no hidden charges.
 
 ## Requirements

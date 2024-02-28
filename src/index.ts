@@ -19,12 +19,36 @@ export default class SDrive {
     }
   }
 
-  async getBuffer(filePath: string): Promise<Buffer> {
-    const buffer = await fs.promises.readFile(filePath);
-    return buffer;
+  async listObjects(): Promise<String[]> {
+    let formData = new FormData();
+    formData.append("apikey", this.apikey);
+
+    try {
+      const response: AxiosResponse = await axios.post(
+        `${this.base_url}/listObjects`,
+        formData,
+        {
+          headers: formData.getHeaders(),
+        }
+      );
+      return response.data;
+     } catch (error: any) {
+      // Explicitly state that error can be of any type
+      if ((error as AxiosError).response) {
+        // Type-check error before accessing properties
+        const errorInfo = {
+          status: (error as AxiosError).response!.status,
+          statusText: (error as AxiosError).response!.statusText,
+          data: (error as AxiosError).response!.data,
+        };
+        throw new Error(JSON.stringify(errorInfo));
+      } else {
+        throw error;
+      }
+    }  
   }
 
-  async uploadFile(buffer: any, filename: string): Promise<any> {
+  async upload(buffer: Buffer, filename: string): Promise<any> {
     let formData = new FormData();
     let mimetype = mime.getType(path.extname(filename)) || undefined; // Use undefined if null
 
