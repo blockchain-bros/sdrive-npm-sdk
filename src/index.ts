@@ -80,7 +80,7 @@ export class SDrive {
       this.apikey,
       this.cnft_url
     );
-    console.log(response);
+    console.log({response});
   }
 
   async listCollections(): Promise<any> {

@@ -5,11 +5,11 @@ import "dotenv/config";
 const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
 const { username, pubkey, recipient } = process.env;
 
-const collection_id = "zwx1fzdondnphdmcqwl9rcgt";
+const collection_id = "j58wgkn5hwls4g6mkpbx26i3";
 const nftName = "My NFT";
 const nftImagePermalink =
   "https://arweave.net/zp8VxsUcg7x63L9JIhfBkNvHoQrJo2fylZNzjYcRC-4";
-const nftCID = "QmYCrsMpbGKUWuDa5FVXf8c42X1fzkq3impg7U6NKCnCjL";
+const nftImageCID = "QmYCrsMpbGKUWuDa5FVXf8c42X1fzkq3impg7U6NKCnCjL";
 const nftDescription = "Another NFT in my series of NFTS";
 const nftTraits = [
   {
@@ -23,7 +23,7 @@ const data = {
   collection_id,
   nftName,
   nftImagePermalink,
-  nftCID,
+  nftImageCID,
   nftDescription,
   nftTraits,
   nftSymbol,

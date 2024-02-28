@@ -20,7 +20,7 @@ export async function uploadMeta(
   if(!nftDescription) throw "Missing NFT Description";
   if(!nftName) throw "Missing NFT Name";
   if(!nftTraits) throw "Missing NFT Traits";
-  console.log(data)
+  
   try {
     const response: AxiosResponse = await axios.post(
       `${cnft_url}/cnft/meta/upload`,

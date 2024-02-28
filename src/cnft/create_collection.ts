@@ -35,7 +35,6 @@ export async function createCNFTCollection(
   cnft_url: string
 ): Promise<String[]> {
   try {
-    console.log("before sending");
     const response: AxiosResponse = await axios.post(
       `${cnft_url}/cnft/collection/create`,
       data,
@@ -45,7 +44,6 @@ export async function createCNFTCollection(
         },
       }
     );
-    console.log("after sending",response.status);
     return response.data;
   } catch (error: any) {
     // Explicitly state that error can be of any type
