@@ -11,10 +11,12 @@ export class SDrive {
   network: "arweave" | "shdwdrive" | "ipfs";
   limit: number;
   page: number;
+  generatePreview: boolean = false;
 
   constructor(
     apikey: string,
     network: "arweave" | "shdwdrive" | "ipfs" = "arweave",
+    generatePreview: boolean = false,
     page = 1,
     limit = 10,
   ) {
@@ -78,6 +80,7 @@ export class SDrive {
     }
     formData.append("apikey", this.apikey);
     formData.append("network", this.network);
+    formData.append("generatePreview", this.generatePreview);
 
     try {
       const response: AxiosResponse = await axios.post(
