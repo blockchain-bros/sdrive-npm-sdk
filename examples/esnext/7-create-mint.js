@@ -35,5 +35,5 @@ await sdrive
     console.log(response);
   })
   .catch((error) => {
-    console.error("Collection creation failed:", error?.message);
+    console.error("cNFT token mint failed:", error);
   });

@@ -64,7 +64,7 @@ export type Mint = {
   collection_id: string;
   nftName: string;
   nftImagePermalink: string;
-  nftCID: string;
+  nftImageCID: string;
   nftDescription: string;
   nftTraits: Attribute[];
   nftSymbol: string;

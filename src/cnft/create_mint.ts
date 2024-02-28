@@ -7,24 +7,20 @@ export async function createCNFTMint(
   cnft_url: string
 ): Promise<String[]> {
   const {
-    username,
-    api_key,
     recipient,
     collection_id,
     nftName,
     nftImagePermalink,
-    nftCID,
+    nftImageCID,
     nftDescription,
     nftTraits,
     nftSymbol,
   } = data;
-  if(!username) throw "Missing username";
-  if(!api_key) throw "Missing api_key";
   if(!recipient) throw "Missing recipient";
   if(!collection_id) throw "Missing collection_id";
   if(!nftImagePermalink) throw "Missing nftImagePermalink";
   if(!nftDescription) throw "Missing nftDescription";
-  if(!nftCID) throw "Missing nftCID";
+  if(!nftImageCID) throw "Missing nftImageCID";
   if(!nftName) throw "Missing nftName";
   if(!nftTraits) throw "Missing nftTraits";
 
