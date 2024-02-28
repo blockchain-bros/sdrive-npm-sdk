@@ -31,7 +31,7 @@ export class SDrive {
     this.apikey = apikey;
     this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
-    this.cnft_url = process.env.cnft_url || "https://cnft.sdrive.app";
+    this.cnft_url = process.env.cnft_url || "https://ws.sdrive.app/minter";
     this.page = page;
     this.limit = limit;
     this.generatePreview = generatePreview;
