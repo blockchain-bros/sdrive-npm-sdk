@@ -18,12 +18,13 @@
 
 ### UPLOAD
 ```
-import * as SDrive from "sdrive";
+import SDrive from "sdrive";
+import fs from "fs/promises";
 const sdrive = new SDrive("your_sdrive_apikey_here");
 
 const filePath = './hello.png';
 const buffer = await fs.readFile(filePath);
-await sdrive.uploadFile(buffer, "hello.png")
+await sdrive.upload(buffer, "hello.png")
   .then(response => {
     console.log("Upload successful:", response);
   })
