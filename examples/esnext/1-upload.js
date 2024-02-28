@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import "dotenv/config";
 
 const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
-sdrive.network = "ipfs";
+sdrive.network = "arweave";
 const filePath = "./covid.mp4";
 await sdrive
   .upload(filePath, "covid.mp4")

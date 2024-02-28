@@ -1,7 +1,7 @@
 import { SDrive } from "../../dist/esnext/index.js";
 import fs from "fs/promises";
 import "dotenv/config";
-
+//NOTE: THIS IS WIP AND DOES NOT CURRENTLY WORK 
 const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
 sdrive.network = "shdwdrive";
 const filePath = "./covid.mp4";
