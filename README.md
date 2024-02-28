@@ -15,6 +15,16 @@
 
 `npm i sdrive`
 
+### if using modules
+```
+import SDrive from "sdrive";
+```
+
+### if using CommonJS
+substitute the import command below with this require 
+```
+const SDrive = require("sdrive/dist/cjs/index.cjs").default;
+```
 
 ### UPLOAD
 ```
