@@ -35,7 +35,7 @@ await sdrive.upload(buffer, "hello.png")
 
 ### LIST OBJECTS
 ```
-import * as Sdrive from "sdrive";
+import SDrive from "sdrive";
 const sdrive = new SDrive("your_sdrive_apikey_here");
 
 await sdrive.listObjects()
@@ -51,7 +51,7 @@ await sdrive.listObjects()
 - Go to `https://sdrive.app/api` and create an API key
 
 ### API Documentation
-`uploadFile(filebuffer, filename)` Uploads a file and returns a promise.
+`upload(filebuffer, filename)` Uploads a file and returns a promise.
 `listObjects()` Returns a promise that resolves to all files uploaded with your API key.
 
 
