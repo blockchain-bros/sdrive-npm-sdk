@@ -53,6 +53,7 @@ await sdrive.listObjects()
 
 ### API Documentation
 `uploadFile(filebuffer, filename)` Uploads a file and returns a promise.
+`listObjects()` Returns a promise that resolves to all files uploaded with your API key.
 
 
 ### Contribution
