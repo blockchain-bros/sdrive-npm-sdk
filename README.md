@@ -17,10 +17,12 @@
 `npm i sdrive`
 
 ```
-// Example usage
+import * as Sdrive from "sdrive";
 const sdrive = new SDrive("your_sdrive_apikey_here");
-const base64File = sdrive.getBuffer(your_file_path);
-const buffer = Buffer.from(base64File, "base64");
+
+const filePath = './hello.png';
+const buffer = await fs.readFile(filePath);
+await sdrive.uploadFile(buffer, "hello.png")
 
 sdrive.uploadFile(buffer, filename)
   .then(response => {
