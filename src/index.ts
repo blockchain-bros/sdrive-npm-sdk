@@ -7,13 +7,13 @@ import process from "process";
 export class SDrive {
   apikey: string;
   base_url: string;
-  network: "arweave" | "shdwdrive";
+  network: "arweave" | "shdwdrive" | "ipfs";
   limit: number;
   page: number;
 
   constructor(
     apikey: string,
-    network: "arweave" | "shdwdrive" = "arweave",
+    network: "arweave" | "shdwdrive" | "ipfs" = "arweave",
     page = 1,
     limit = 10,
   ) {

@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "sdrive": "^2.0.6"
+    "sdrive": "^2.1.1"
   }
 }

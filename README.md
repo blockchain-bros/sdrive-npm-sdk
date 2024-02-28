@@ -4,7 +4,7 @@
 
 <img src="https://static.sdrive.app/images/sdrive-logo-transparent.png" width="150" alt="SDrive Logo">
 
-#### SDrive gives you access to large decentralized storage networks without compromising user experience or privacy. You can select from various storage providers such as ARWeave, Storj, and IPFS, and pay for the services as you use them. There are no hidden charges and no subscription.
+#### SDrive gives you access to large decentralized storage networks without compromising user experience or privacy. You can select from various storage providers such as ARWeave, Shdw Drive, and IPFS, and pay for the services as you use them. There are no hidden charges and no subscription.
 
 ## Requirements
 
@@ -35,7 +35,7 @@ const sdrive = new SDrive("your_sdrive_apikey_here");
 sdrive.network = desired_network // optional
 ```
 
-Where `desired_network` is either "arweave" or "shdwdrive"
+Where `desired_network` is either "arweave", "shdwdrive" or "ipfs"
 
 ### UPLOAD
 ```
