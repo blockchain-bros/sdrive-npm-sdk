@@ -9,14 +9,14 @@ import {MediaMetadata} from "./types";
 export class SDrive {
   apikey: string;
   base_url: string;
-  network: "arweave" | "shdwdrive" | "ipfs";
+  network: "arweave" | "ipfs";
   limit: number;
   page: number;
   generatePreview: boolean = false;
 
   constructor(
     apikey: string,
-    network: "arweave" | "shdwdrive" | "ipfs" = "arweave",
+    network: "arweave" | "ipfs" = "arweave",
     page = 1,
     limit = 10,
     generatePreview: boolean = false,
