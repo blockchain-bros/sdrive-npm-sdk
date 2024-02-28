@@ -1,8 +1,8 @@
-import axios, { AxiosResponse, AxiosError } from 'axios';
-import FormData from 'form-data';
-import mime from 'mime';
-import path from 'path';
-import process from 'process';
+import axios, { AxiosResponse, AxiosError } from "axios";
+import FormData from "form-data";
+import mime from "mime";
+import path from "path";
+import process from "process";
 import fs from "fs";
 
 export default class SDrive {
@@ -26,7 +26,7 @@ export default class SDrive {
 
   async uploadFile(buffer: any, filename: string): Promise<any> {
     let formData = new FormData();
-    let mimetype = mime.getType(path.extname(filename)) || undefined;  // Use undefined if null
+    let mimetype = mime.getType(path.extname(filename)) || undefined; // Use undefined if null
 
     formData.append("fileupload", buffer, {
       filename: filename,
@@ -35,12 +35,18 @@ export default class SDrive {
     formData.append("apikey", this.apikey);
 
     try {
-      const response: AxiosResponse = await axios.post(`${this.base_url}/upload`, formData, {
-        headers: formData.getHeaders(),
-      });
+      const response: AxiosResponse = await axios.post(
+        `${this.base_url}/upload`,
+        formData,
+        {
+          headers: formData.getHeaders(),
+        }
+      );
       return response.data;
-    } catch (error: any) { // Explicitly state that error can be of any type
-      if ((error as AxiosError).response) { // Type-check error before accessing properties
+    } catch (error: any) {
+      // Explicitly state that error can be of any type
+      if ((error as AxiosError).response) {
+        // Type-check error before accessing properties
         const errorInfo = {
           status: (error as AxiosError).response!.status,
           statusText: (error as AxiosError).response!.statusText,
@@ -53,4 +59,4 @@ export default class SDrive {
     }
   }
 }
-
+//module.exports = SDrive;
