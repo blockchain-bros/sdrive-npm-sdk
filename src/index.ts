@@ -11,7 +11,7 @@ export default class SDrive {
 
   constructor(apikey: string) {
     this.apikey = apikey;
-    this.base_url = process.env.base_url || "https://sdrive.app/api/v3";
+    this.base_url = process.env.base_url || "https://v3.sdrive.app";
 
     if (!this.apikey) {
       console.log("Please add your credentials");
