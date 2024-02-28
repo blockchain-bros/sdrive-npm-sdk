@@ -9,25 +9,34 @@ export async function createCNFTMint(
   const {
     recipient,
     collection_id,
-    nftName,
-    nftImagePermalink,
-    nftImageCID,
-    nftDescription,
-    nftTraits,
-    nftSymbol,
+    name,
+    permalink,
+    cid,
+    description,
+    traits,
+    symbol,
   } = data;
   if(!recipient) throw "Missing recipient";
   if(!collection_id) throw "Missing collection_id";
-  if(!nftImagePermalink) throw "Missing nftImagePermalink";
-  if(!nftDescription) throw "Missing nftDescription";
-  if(!nftImageCID) throw "Missing nftImageCID";
-  if(!nftName) throw "Missing nftName";
-  if(!nftTraits) throw "Missing nftTraits";
+  if(!permalink) throw "Missing nftImagePermalink";
+  if(!description) throw "Missing nftDescription";
+  if(!cid) throw "Missing nftImageCID";
+  if(!name) throw "Missing nftName";
+  if(!traits) throw "Missing nftTraits";
 
   try {
     const response: AxiosResponse = await axios.post(
       `${cnft_url}/cnft/mint/create`,
-      data,
+      {
+        recipient,
+        collection_id,
+        nftName:name,
+        nftImagePermalink:permalink,
+        nftImageCID:cid,
+        nftDescription:description,
+        nftTraits:traits,
+        nftSymbol:symbol,
+      },
       {
         headers: {
           Authorization: `Bearer ${apikey}`,
