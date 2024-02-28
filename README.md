@@ -21,9 +21,9 @@ import {SDrive} from "sdrive";
 ```
 
 ### if using CommonJS
-substitute the import command below with this require 
+substitute the import command below with this
 ```
-const SDrive = require("sdrive");
+const {SDrive} = require("sdrive");
 ```
 
 ### UPLOAD
