@@ -7,6 +7,7 @@ describe("SDrive", function () {
   describe("#init sdrive", function () {
     it("should init sdrive", function () {
       const sdrive = new SDrive(process.env.SDRIVE_API_KEY);
+      sdrive.network = "shdwdrive";
       assert(
         sdrive instanceof SDrive,
         "sdrive should be an instance of SDrive",

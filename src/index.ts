@@ -8,9 +8,11 @@ import fs from "fs";
 export class SDrive {
   apikey: string;
   base_url: string;
+  network: "arweave"|"shdwdrive"
 
-  constructor(apikey: string) {
+  constructor(apikey: string, network:"arweave"|"shdwdrive" = "arweave") {
     this.apikey = apikey;
+    this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
 
     if (!this.apikey) {
@@ -51,6 +53,7 @@ export class SDrive {
       contentType: mimetype,
     });
     formData.append("apikey", this.apikey);
+    formData.append("network", this.network);
 
     try {
       const response: AxiosResponse = await axios.post(
