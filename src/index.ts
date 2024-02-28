@@ -4,6 +4,7 @@ import mime from "mime";
 import path from "path";
 import process from "process";
 import fs from "fs";
+import {MediaMetadata} from "./types";
 
 export class SDrive {
   apikey: string;
@@ -64,6 +65,7 @@ export class SDrive {
   async upload(
     filepathOrBuffer: string | Buffer,
     filename: string,
+    metadata?: MediaMetadata,
   ): Promise<any> {
     let formData = new FormData();
     let mimetype = mime.getType(path.extname(filename)) || undefined; // Use undefined if null
@@ -80,6 +82,7 @@ export class SDrive {
       });
     }
     formData.append("apikey", this.apikey);
+    formData.append("metadata", JSON.stringify(metadata||[]));
     formData.append("network", this.network);
     formData.append("generatePreview", this.generatePreview.toString());
 
