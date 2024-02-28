@@ -1,6 +1,7 @@
 {
   "name": "sdrive",
   "type": "module",
+  "typings": "dist/cjs/index.d.ts",
   "version": "2.1.2",
   "description": "SDrive is a decentralized storage provider that lets you upload your content on uncensorable networks",
   "main": "dist/cjs/index.cjs",
