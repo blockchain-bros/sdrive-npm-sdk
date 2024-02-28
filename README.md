@@ -50,6 +50,26 @@ await sdrive.listObjects()
 - Log in or register an account 
 - Go to `https://sdrive.app/api` and create an API key
 
+### Pricing
+
+- Uploads are paid for with a one time fee
+- No bandwidth charge
+- 1 credit ≈ 0.00035 USDC
+
+#### Price Chart
+
+- 0.001 megabyte: 1 credits (0.00035 USD)
+- 0.005 megabyte: 1 credits (0.00035 USD)
+- 0.01 megabyte: 1 credits (0.00035 USD)
+- 0.05 megabyte: 1 credits (0.00035 USD)
+- 0.1 megabyte: 2 credits (0.00070 USD)
+- 0.5 megabyte: 6 credits (0.00210 USD)
+- 1 megabyte: 11 credits (0.00385 USD)
+- 5 megabyte: 51 credits (0.01785 USD)
+- 20 megabyte: 203 credits (0.07105 USD)
+- 50 megabyte: 513 credits (0.17955 USD)
+- 100 megabyte: 1051 credits (0.36785 USD)
+
 ### API Documentation
 `upload(filebuffer, filename)` Uploads a file and returns a promise.
 `listObjects()` Returns a promise that resolves to all files uploaded with your API key.
