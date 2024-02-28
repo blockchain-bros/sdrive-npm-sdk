@@ -4,26 +4,34 @@ import mime from "mime";
 import path from "path";
 import process from "process";
 import fs from "fs";
-import {MediaMetadata} from "./types";
+import { Collection, MediaMetadata, Meta, Mint, Networks } from "./types";
+import {
+  createCNFTCollection,
+  listCNFTCollections,
+} from "./cnft/create_collection.js";
+import { createCNFTMint } from "./cnft/create_mint.js";
+import { uploadMeta } from "./cnft/upload_meta.js";
 
 export class SDrive {
   apikey: string;
   base_url: string;
-  network: "arweave" | "ipfs";
+  cnft_url: string;
+  network: Networks;
   limit: number;
   page: number;
   generatePreview: boolean = false;
 
   constructor(
     apikey: string,
-    network: "arweave" | "ipfs" = "arweave",
+    network: Networks = "arweave",
     page = 1,
     limit = 10,
-    generatePreview: boolean = false,
+    generatePreview: boolean = false
   ) {
     this.apikey = apikey;
     this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
+    this.cnft_url = process.env.cnft_url || "https://cnft.sdrive.app";
     this.page = page;
     this.limit = limit;
     this.generatePreview = generatePreview;
@@ -43,7 +51,7 @@ export class SDrive {
           headers: {
             Authorization: `Bearer ${this.apikey}`,
           },
-        },
+        }
       );
       return response.data;
     } catch (error: any) {
@@ -62,10 +70,35 @@ export class SDrive {
     }
   }
 
+  async createCollection(data: Collection): Promise<any> {
+    const size = data.size;
+    if (!["1024", "16384", "65536", "262144", "1048576"].includes(size)) {
+      throw "Wrong collection size. Must be one of 1024,16384,65536,1048576";
+    }
+    const response = await createCNFTCollection(
+      data,
+      this.apikey,
+      this.cnft_url
+    );
+    console.log(response);
+  }
+
+  async listCollections(): Promise<any> {
+    return await listCNFTCollections(this.apikey, this.cnft_url);
+  }
+
+  async createMint(data: Mint): Promise<any> {
+    return await createCNFTMint(data, this.apikey, this.cnft_url);
+  }
+
+  async uploadNFTMeta(data: Meta): Promise<any> {
+    return await uploadMeta(data, this.apikey, this.cnft_url);
+  }
+
   async upload(
     filepathOrBuffer: string | Buffer,
     filename: string,
-    metadata?: MediaMetadata,
+    metadata?: MediaMetadata
   ): Promise<any> {
     let formData = new FormData();
     let mimetype = mime.getType(path.extname(filename)) || undefined; // Use undefined if null
@@ -82,7 +115,7 @@ export class SDrive {
       });
     }
     formData.append("apikey", this.apikey);
-    formData.append("metadata", JSON.stringify(metadata||[]));
+    formData.append("metadata", JSON.stringify(metadata || []));
     formData.append("network", this.network);
     formData.append("generatePreview", this.generatePreview.toString());
 
@@ -93,7 +126,7 @@ export class SDrive {
         {
           headers: formData.getHeaders(),
           maxBodyLength: Infinity,
-        },
+        }
       );
       return response.data;
     } catch (error: any) {
