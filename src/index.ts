@@ -6,13 +6,17 @@ import process from "process";
 
 export class SDrive {
   apikey: string;
-  base_url: string;
-  network: "arweave" | "shdwdrive";
+  base_url: string
+  network: "arweave" | "shdwdrive"
+  limit: number
+  page: number
 
-  constructor(apikey: string, network: "arweave" | "shdwdrive" = "arweave") {
+  constructor(apikey: string, network: "arweave" | "shdwdrive" = "arweave", page = 1, limit = 10) {
     this.apikey = apikey;
     this.network = network;
     this.base_url = process.env.base_url || "https://v3.sdrive.app";
+    this.page = page;
+    this.limit = limit;
 
     if (!this.apikey) {
       console.log("Please add your credentials");
@@ -24,7 +28,7 @@ export class SDrive {
     try {
       const response: AxiosResponse = await axios.post(
         `${this.base_url}/list-objects`,
-        { apikey: this.apikey },
+        { page: this.page, limit: this.limit },
         {
           headers: {
             Authorization: `Bearer ${this.apikey}`,

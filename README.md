@@ -59,6 +59,9 @@ await sdrive.upload(buffer, "hello.png")
 import {SDrive} from "sdrive";
 const sdrive = new SDrive("your_sdrive_apikey_here");
 
+sdrive.page = 1; //optional
+sdrive.limit = 10; //optional
+
 await sdrive.listObjects()
   .then(response => {
     console.log(response);
