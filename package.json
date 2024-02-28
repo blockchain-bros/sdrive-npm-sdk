@@ -6,7 +6,7 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esnext/index.js",
   "scripts": {
-    "pretest": "npx tsc",
+    "pretest": "npm run build",
     "test": "mocha test",
     "fmt": "prettier --write src/ test/ *.json",
     "build:esnext": "tsc -p tsconfig.esnext.json",
