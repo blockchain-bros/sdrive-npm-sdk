@@ -1,7 +1,7 @@
 {
   "name": "sdrive",
   "type": "module",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "SDrive is a decentralized storage provider that lets you upload your content on uncensorable networks",
   "main": "dist/index.js",
   "scripts": {
