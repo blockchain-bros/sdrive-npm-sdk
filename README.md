@@ -11,20 +11,31 @@
 - Node.js v14 or above
 - An API key from [SDrive](https://sdrive.app/api)
 
-## How to use
+## Usage
 
 `npm i sdrive`
 
-### if using modules
+#### if using modules
 ```
 import {SDrive} from "sdrive";
 ```
 
-### if using CommonJS
+#### if using CommonJS
 substitute the import command below with this
 ```
 const {SDrive} = require("sdrive");
 ```
+
+### Setting network (optional)
+Choose the network you want to upload your data to. Default is Arweave.
+
+```
+import {SDrive} from "sdrive";
+const sdrive = new SDrive("your_sdrive_apikey_here");
+sdrive.network = desired_network // optional
+```
+
+Where `desired_network` is either "arweave" or "shdwdrive"
 
 ### UPLOAD
 ```
