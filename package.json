@@ -10,7 +10,8 @@
     "fmt": "prettier --write src/ test/ *.json",
     "build:esnext": "tsc -p tsconfig.esnext.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build": "npm run build:esnext && npm run build:cjs"
+    "build": "npm run build:esnext && npm run build:cjs",
+    "postbuild": "node postbuild.js"
   },
   "keywords": [],
   "author": "",
