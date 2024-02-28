@@ -35,7 +35,7 @@ const sdrive = new SDrive("your_sdrive_apikey_here");
 sdrive.network = desired_network // optional
 ```
 
-Where `desired_network` is either "arweave", "shdwdrive" or "ipfs"
+Where `desired_network` is either "arweave" or "ipfs"
 
 ### UPLOAD using buffers
 ```
