@@ -124,8 +124,12 @@ export class SDrive {
         `${this.base_url}/upload`,
         formData,
         {
-          headers: formData.getHeaders(),
+          headers: {
+            ...formData.getHeaders(),
+            "x-filename": filename
+          },
           maxBodyLength: Infinity,
+      
         }
       );
       return response.data;
